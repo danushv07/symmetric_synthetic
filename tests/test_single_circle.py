@@ -18,7 +18,7 @@ def test_images_created():
         no_of_images=1,
         # save_folder=str(images_),
         save_folder=str(tpath),
-        pattern="triangle",
+        pattern="circle",
     )
 
     assert len(images) > 0
@@ -47,7 +47,7 @@ def test_image_object_created():
 
     image, mask = CreatePattern(
         no_of_images=1,
-        pattern="triangle",
+        pattern="circle",
         f_save=False,
     )
 
