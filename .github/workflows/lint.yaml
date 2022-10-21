@@ -5,31 +5,21 @@
 name: CI
 on: pull_request
 
-# for help or a starting point, see
-# https://github.com/abatilo/actions-poetry
-
 jobs:
   ci:
     strategy:
       fail-fast: false
       matrix:
         python-version: ["3.9", "3.10"]
-        poetry-version: ["1.0", "1.1.15"]
-        os: [ubuntu-22.04, macos-latest, windows-latest]
+        os: [ubuntu-22.04]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Run image
-        uses: abatilo/actions-poetry@v2
-        with:
-          poetry-version: ${{ matrix.poetry-version }}
-      - name: view poetry help to check poetry works
-        run: poetry --help
       - name: install deps
-        run: poetry install
-      - name: test project
-        run: poetry run reuse lint
+        run: python -m pip install reuse
+      - name: lint project licences
+        run: reuse lint
 
