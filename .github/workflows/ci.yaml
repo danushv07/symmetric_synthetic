@@ -20,8 +20,9 @@ jobs:
       fail-fast: false
       matrix:
         python-version: ["3.8", "3.9"] #, "3.10"] #skimage currently fails with python 3.10
-        poetry-version: ["1.0", "1.1.15"]
-        os: [ubuntu-22.04, macos-latest, windows-latest]
+        poetry-version: ["1.1.15"]
+        #at the time of writing, macos wouldn't support installing skimage
+        os: [ubuntu-22.04, windows-latest] #, macos-latest 
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
