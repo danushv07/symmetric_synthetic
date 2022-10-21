@@ -1,6 +1,9 @@
 name: CI
 on: pull_request
 
+# for help or a starting point, see
+# https://github.com/abatilo/actions-poetry
+
 jobs:
   ci:
     strategy:
