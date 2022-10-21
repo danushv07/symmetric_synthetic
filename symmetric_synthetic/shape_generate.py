@@ -9,7 +9,6 @@ Author: Danush Kumar Venkatesh
 """
 
 import os
-
 # import glob
 from glob import glob
 
@@ -28,6 +27,7 @@ def ImageRescale(image):  # , random_gen
     Customized function to add noise and rescale image between 0, 255
 
     - random gaussian noise followed by gaussain filter is applied
+
     - the final image is rescaled and converted to np.uint8
     Parameters
     ---------------
@@ -126,6 +126,8 @@ def CreatePattern(
             for name in ["images", "masks"]:
                 os.makedirs(os.path.join(path, name))
 
+    images = []
+    masks = []
     for j in range(no_of_images):
         rng = np.random.default_rng()
         img = rng.normal(loc=0.5, scale=0.1, size=(image_size, image_size))
@@ -188,11 +190,19 @@ def CreatePattern(
         mask_ = Image.fromarray(mask * 255)
 
         if f_save:
-            image.save(save_folder + "/images/image" + str(j + 1) + ".png")
-            mask_.save(save_folder + "/masks/mask" + str(j + 1) + ".png")
-        elif (not f_save) and (j == 0):
-            return image, mask_
-            break
+            oimage = save_folder + "/images/image" + str(j + 1) + ".png"
+            omask = save_folder + "/masks/mask" + str(j + 1) + ".png"
+            image.save(oimage)
+            mask_.save(omask)
+
+            images.append(oimage)
+            masks.append(omask)
+
+        else:
+            if j == 0:
+                return image, mask_
+
+    return images, masks
 
 
 def CreateMixture(
