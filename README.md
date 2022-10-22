@@ -6,8 +6,7 @@ SPDX-License-Identifier: BSD-3-Clause-Attribution
 
 # Shape generate
 
-The file ```shape_generate.py``` has multiple functionality to create synthetic dataset
-of symmetrical objects. The methods creates two folders, namely, ```images``` and ```masks```. The images are constructed from the Gaussain distribution.
+This package has the functionality to generate symmetrical objects such as circle, ellipses, square and triangles in an image and its corresponding mask. A combination of these objects can also be created. The function within creates two folders, namely, ```images``` and ```masks```. The images are constructed from the Gaussain distribution.
 
 # Installation
 
