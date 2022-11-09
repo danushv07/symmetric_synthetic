@@ -9,13 +9,15 @@ SPDX-License-Identifier: BSD-3-Clause-Attribution
 This package has the functionality to generate symmetrical objects such as circle, ellipses, square and triangles in an image and its corresponding mask. A combination of these objects can also be created. The function within creates two folders, namely, ```images``` and ```masks```. The images are constructed from the Gaussain distribution.
 
 # Installation
+The package can be installed by
 
-This repo is managed with `poetry`. To try out this package, do:
+[comment]: <> (This repo is managed with `poetry`. To try out this package, do:)
 
-```
-$ poetry install
-$ poetry run symmsyn --help
-```
+
+[comment]: <> ($ poetry install)
+[comment]: <> ($ poetry run symmsyn --help)
+
+```pip install symmetric-synthetic```
 
 # Examples
 
